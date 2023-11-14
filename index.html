@@ -1,0 +1,825 @@
+<html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <link rel="shortcut icon" href="https://raw.githubusercontent.com/Luann8/LPP-1.2-usuarios/main/icon.ico?token=GHSAT0AAAAAACG3LP2OWTGU3MSMQSRORH36ZIQXDRQ" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Licenças Ambientais no Estado do Rio de Janeiro</title>
+    <style>
+        /* Estilos CSS aqui */
+
+        /* Reset some default styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("https://th.bing.com/th/id/R.2e7e2ab1b59a0d011f424adf5ef7790c?rik=kc%2bWOxG689xbDg&pid=ImgRaw&r=0");
+            text-align: center;
+            margin: 0; /* Remove margem padrão */
+        }
+
+        h1, h2 {
+            color: #000000; /* Texto azul do título */
+        }
+
+        
+        p {
+            font-size: 18px;
+            color: #000; /* Cor do texto escuro */
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }      
+        
+        /* Header styles */
+        .header-bar {
+            background-color: #000000; /* Fundo azul para o cabeçalho */
+            color: #dddddd; /* Texto branco para o cabeçalho */
+            padding: 5px;
+        }
+
+        .header-bar img {
+            display: block;
+            margin: 0 auto 20px; /* Centralizar a imagem e adicionar espaço abaixo */
+            max-width: 100%; /* Garantir que a imagem não exceda o contêiner */
+        }
+
+        /* License select styles */
+        select {
+            font-size: 20px;
+            color: #0077b6; /* Texto azul do seletor */
+            background-color: #fcfcfc; /* Fundo branco do seletor */
+            border: 2px solid #0077b6 ;
+            padding: 10px;
+            border-radius: 8px;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        /* Separadores entre seções */
+        .section-divider {
+            background-color: #0077b6; /* Cor do separador azul */
+            height: 2px;
+            margin: 20px 0;
+        }
+
+        /* Upload section styles */
+        .upload-section {
+            border: 2px dashed #0077b6; /* Borda tracejada azul */
+            padding: 20px;
+            background-color: #fcfcfc; /* Fundo branco */
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .upload-btn-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        .btn {
+            border: 2px solid #0077b6; /* Borda azul para o botão */
+            color: #0077b6; /* Texto azul do botão */
+            background-color: #dddddd; /* Fundo branco do botão */
+            padding: 6px 10px;
+            border-radius: 1px;
+            font-size: 10px;
+        }
+
+        .btn-amarelo {
+            border: 2px solid #0077b6; /* Borda azul para o botão */
+            color: #0077b6; /* Texto azul do botão */
+            background-color: #e4bb08; /* Fundo amarelo do botão */
+            padding: 6px 10px;
+            border-radius: 1px;
+            font-size: 10px;
+        }
+
+        .btn-verde {
+            border: 2px solid #0077b6; /* Borda azul para o botão */
+            color: #0077b6; /* Texto azul do botão */
+            background-color: #4caf50; /* Fundo verde do botão */
+            padding: 6px 10px;
+            border-radius: 1px;
+            font-size: 10px;
+        }
+
+        .upload-btn-wrapper input[type=file] {
+            font-size: 20px;
+            position: center;
+            left: 0;
+            top: 0;
+            opacity: 0;
+        }
+
+        .file-name {
+            margin-top: 10px;
+            color: #333; /* Cor do texto escuro */
+            font-weight: bold;
+        }
+
+        /* License info styles */
+        .response-box {
+            background-color: #fcfcfc; /* Fundo branco */
+            border: 2px solid #0077b6; /* Borda azul */
+            padding: 20px;
+            border-radius: 8px;
+            text-align: left;
+            margin: 20px auto; /* Centralizar a caixa de resposta */
+            max-width: auto; /* Limitar a largura da caixa de resposta */
+        }
+
+        .response-box h2 {
+            color: #0077b6; /* Texto azul do título */
+        }
+
+        .response-box p {
+            color: #333; /* Cor do texto escuro */
+        }
+        
+        .response-box2 {
+            background-color: #dddddd; /* Fundo branco */
+
+        }
+
+        .custom-upload-btn {
+            border: 2px solid #0077b6; /* Borda azul para o botão */
+            color: #0077b6; /* Texto azul do botão */
+            background-color: #dddddd; /* Fundo branco do botão */
+            padding: 6px 10px;
+            border-radius: 1px;
+            font-size: 10px;
+        }
+
+        /* User registration bar styles */
+        .user-bar {
+            color: #0077b6; /* Texto branco para a barra de usuário */
+            padding: 10px;
+        }
+
+        .user-bar h2 {
+            font-size: 24px; /* Fonte ligeiramente maior para o título */
+            margin-bottom: 10px; /* Adicionar espaçamento abaixo do título */
+        }
+
+        .user-bar .user-form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .user-bar .user-form input[type="text"],
+        .user-bar .user-form input[type="email"],
+        .user-bar .user-form button {
+            padding: 5px; /* Preenchimento ligeiramente menor para entradas e botão */
+            margin-right: 5px;
+            border: none;
+            border-radius: 4px;
+            font-size: 18px; /* Fonte ligeiramente menor para entradas e botão */
+        }
+
+        .user-bar .user-form button {
+            background-color: #dddddd; /* Fundo branco para o botão */
+            color: #0077b6; /* Texto azul do botão */
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #4caf50; /* Fundo verde para o rodapé */
+            text-align: center;
+            padding: 10px;
+        }
+
+        /* Content without sidebar */
+        .content-without-sidebar {
+            padding-left: 0; /* Remova o preenchimento à esquerda */
+        }
+
+        /* Centralize o conteúdo */
+        .center-content {
+            text-align: center;
+            margin: 0 auto;
+            max-width: 800px; /* Defina a largura máxima do conteúdo */
+        }
+
+        /* Sidebar styles */
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed ;
+            z-index: 1;
+            top: 0;
+            left: -250px;
+            background-color: #000000;
+            padding-top: 20px;
+            transition: 0.5s;
+        }
+
+        .sidebar a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #dddddd;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            color: #0077b6;
+        }
+
+        .sidebar .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #dddddd;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        .open-sidebar {
+            font-size: 30px;
+            cursor: pointer;
+            padding-left: 20px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            margin-top: 10px;
+            color: #dddddd;
+        }
+
+        .active {
+            background-color: #0077b6;
+        }
+
+
+        .sidebar-opened {
+            left: 0;
+        }
+
+        .sidebar-closed {
+            left: -250px;
+        }
+    
+        span.open-sidebar {
+            color: #000;
+            cursor: pointer;
+        }
+
+        .menu-container {
+            text-align: center;
+        }
+
+        .font-size {
+            cursor: pointer;
+            padding-left: 20px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            margin-top: 10px;
+            color: #dddddd;
+            }
+
+
+        .link {
+            transition: color 0.5s;
+            color: #ffffff; /* Cor padrão dos links */
+            }
+
+        .link:hover {
+            color: #0077b6; /* Cor ao passar o mouse */
+            transition: 0.5s ease-in-out;
+        }
+        @media screen and (max-width: 768px) {
+    /* Estilos para telas menores */
+    /* Por exemplo, você pode ocultar a barra lateral aqui */
+    .sidebar {
+        display: block;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    /* Estilos para telas maiores */
+    /* Por exemplo, você pode exibir a barra lateral aqui */
+    .sidebar {
+        display: block;
+    }
+}
+    
+    </style>
+    <script>
+        function openSidebar() {
+            document.getElementById("mySidebar").style.left = "0";
+        }
+
+        function closeSidebar() {
+            document.getElementById("mySidebar").style.left = "-250px";
+        }
+
+        function toggleSidebar() {
+            const sidebar = document.getElementById("mySidebar");
+
+            if (sidebar.style.left === "0px") {
+                sidebar.style.left = "-250px";
+            } else {
+                sidebar.style.left = "0px";
+            }
+
+        
+        }
+    </script>
+</head>
+<body onload="openSidebar()">
+    <!-- Botão para abrir a barra lateral -->
+    <span class="open-sidebar" onclick="toggleSidebar()">☰</span>
+
+    <!-- Barra lateral esquerda -->
+    <div class="sidebar" id="mySidebar">
+        <span class="close-btn" onclick="toggleSidebar()">x</span>
+    <div><img src="https://raw.githubusercontent.com/Luann8/LPP-1.2-usuarios/main/prefeitura-de-paracambi-logao%20(2).png" alt=""></div>
+
+<br>
+<h2 style="color:#4caf50"> Cadastro:</h2>
+
+    <button class="btn" onclick="window.location.href='https://luann8.github.io/LPP-1.2-login/'">Cadastro</button>
+    <button class="btn" onclick="window.location.href='https://luann8.github.io/Formularios-LP/'">formulário</button>
+
+
+<p></p>
+
+        <hr>
+        
+        <p href="#" id="info-link" onclick="showPage('info-content'); closeSidebar();" class="link">Informações</p>
+        <hr>
+        <p href="#" id="attach-link" onclick="showPage('attach-content'); closeSidebar();" class="link">Anexar Arquivos</p>
+        <hr>
+        <p href="#" id="check-link" onclick="showPage('check-content'); closeSidebar();" class="link">Conferir Meus Arquivos</p>
+        <hr>
+        
+        <br>
+
+    </div>        
+        </nav>
+        <!-- Área de conteúdo -->
+    <div class="content content-without-sidebar center-content">
+        <!-- Conteúdo vai aqui -->
+        <br>
+        <img src="https://raw.githubusercontent.com/Luann8/LPP-1.2-usuarios/main/meio-Ambiente.png" alt="logo">
+        <h1>Licenças e Prazos Ambientais </h1>
+        
+        <p>O <strong>SEMADES</strong> (Secretaria municipal de meio ambiente e desenvolvimento sustentável) é o órgão ambiental do Estado do Rio de Janeiro. É responsável pela concessão de licenças ambientais para atividades que possam causar impacto ambiental no estado.</p>
+        <p></p>
+        <p>Este é um software para monitoramento de licenças ambientais feito para Prefeitura de Paracambi.</p>
+        <div id="info-content">
+            <hr>
+            <h2>Caso queira informações dos prazos</h2>
+            <select id="license">
+                <option value="NT">Selecione aqui</option>
+                <option value="LP">Licença prévia (LP)</option>
+                <option value="LI">Licença de instalação (LI)</option>
+                <option value="LO">Licença de operação (LO)</option>
+                <option value="AA">Autorização ambiental (AA)</option>
+                <option value="SupressaoVegetal">Autorização para supressão vegetal</option>
+                <option value="UsoFogoControlado">Autorização para uso do fogo controlado</option>
+                <option value="TransporteMateriaPrima">Autorização para transporte de matéria-prima de origem florestal</option>
+                <option value="CadastroConsumidores">Cadastro e registro dos consumidores de matéria-prima de origem florestal</option>
+                <option value="CadastroAgrotoxicos">Cadastro de produtos agrotóxicos comercializados no Estado</option>
+                <option value="RegistroEstabelecimento">Registro do estabelecimento comercializador ou utilizador de agrotóxico</option>
+            </select>
+            <div class="response-box">
+                <h2>Tempo de Licença</h2>
+                <p id="analise">Tempo de análise:</p>
+                <p id="validade">Tempo de validade:</p>
+                <p id="renovacao">Tempo de renovação:</p>
+            </div>
+        </div>
+        <div id="attach-content">
+            <hr>
+            <h2>Prencha e depois envie os arquivos:</h2>
+
+                </select>
+                <br>
+                
+                <style>
+                    .form-container {
+                        background-color: #ffffff;
+                        padding: 20px;
+                        border: 2px solid #0077b6; /* Borda azul para o botão */
+                        border-radius: 10px;
+                        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+                        margin-bottom: 20px;
+                    }
+                
+                    label {
+                        display: block;
+                        margin-bottom: 5px;
+                    }
+                
+                    input[type="text"],
+                    input[type="date"] {
+                        width: 100%;
+                        padding: 10px;
+                        margin-bottom: 15px;
+                        border: 2px solid #dddddd; /* Borda azul para o botão */
+                        border-radius: 5px;
+                    }
+                    </style>              
+
+<br>
+<div class="form-container">
+        
+    <p></p>
+    
+    <label for="num-licenca"><strong>Número da licença:</strong></label>
+    <input type="text" id="num-licenca" name="num-licenca" required>
+    
+    <label for="cliente"><strong>Cliente:</strong></label>
+    <input type="text" id="cliente" name="cliente" required>
+
+    <label for="protocolar-ate"><strong>Protocolar até:</strong></label>
+    <input type="date" id="protocolar-ate" name="protocolar-ate" required>
+
+    <label for="vencimento"><strong>Vencimento:</strong></label>
+    <input type="date" id="vencimento" name="vencimento" required>
+
+</form>
+
+<p>Aqui você pode anexar arquivos: </p>
+
+<div class="upload-btn-wrapper">
+</div>
+<input type="file" name="myfile" id="myfile" accept=".pdf, .doc, .docx, .txt" style="display: none;">
+<p></p>
+<div class="upload-section">
+    <span class="file-name">Nenhum arquivo selecionado</span>
+    <div id="files-list"></div>
+</div>
+<br>
+<button class="btn-verde" id="enviar-btn">Enviar</button>
+<button class="custom-upload-btn" onclick="document.getElementById('myfile').click()">Escolher arquivo</button>
+<br>
+<br>
+</div>
+</div>
+        
+<div id="check-content">
+        <p></p>
+            <hr>
+            <h2>Conferir Meus Arquivos :</h2>
+            
+
+                <div class="response-box">
+
+                        <h3>Licença 1</h3>
+                        <p>Cliente: Cliente A</p>
+                        <p>Tipo de Licença: Tipo A</p>
+                        <p>Número da Licença: 12345</p>
+                        <p>Protocolar até: 01/05/2022</p>
+                        <p>Vencimento: 30/09/2022</p>
+                        <button id="conferir-arquivos">Conferir Arquivos</button>
+
+                </div>
+
+                <div class="response-box">
+
+                        <h3>Licença 2</h3>
+                        <p>Cliente: Cliente B</p>
+                        <p>Tipo de Licença: Tipo B</p>
+                        <p>Número da Licença: 67890</p>
+                        <p>Protocolar até: 15/03/2022</p>
+                        <p>Vencimento: 15/08/2022</p>
+                        <button id="conferir-arquivos">Conferir Arquivos</button>
+                    </div>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Script JavaScript -->
+    <script>
+        function showPage(pageId) {
+            // Esconde todas as páginas
+            document.querySelectorAll('.content > div').forEach(function (page) {
+                page.style.display = 'none';
+            });
+
+            // Exibe a página selecionada
+            document.getElementById(pageId).style.display = 'block';
+        }
+    </script>
+
+<script>
+
+// Esconde todas as páginas
+document.querySelectorAll('.content > div').forEach(function (page) {
+    page.style.display = 'none';
+});
+</script>
+
+<script> 
+
+    function updateFileName() {
+            const fileInput = document.getElementById("myfile");
+            const fileNameDisplay = document.querySelector(".file-name");
+            const files = fileInput.files;
+            const filesList = document.getElementById("files-list");
+            filesList.innerHTML = ""; // Clear previous file list
+
+            for (const file of files) {
+                const fileLink = document.createElement("a");
+                fileLink.href = URL.createObjectURL(file);
+                fileLink.textContent = file.name;
+                fileLink.setAttribute("target", "_blank"); // Open links in a new tab
+                filesList.appendChild(fileLink);
+            }
+
+            if (files.length > 0) {
+                fileNameDisplay.textContent = "Arquivos selecionados:";
+            } else {
+                fileNameDisplay.textContent = "Nenhum arquivo selecionado";
+            }
+        }
+
+        // Exibir as informações correspondentes à licença selecionada
+        document.getElementById("license").addEventListener("change", function () {
+            const licenseSelect = this;
+            const tempoLicenca = document.getElementById("tempo-licenca");
+            const selectedOption = licenseSelect.options[licenseSelect.selectedIndex];
+            const licenseValue = selectedOption.value;
+            const tempoMap = {
+            
+                NT: {
+                    analise: "Tempo de análise: ",
+                    validade: "Tempo de validade: ",
+                    renovacao: "Tempo de renovação: "
+                },
+                LP: {
+                    analise: "Tempo de análise: 60 dias úteis",
+                    validade: "Tempo de validade: 3 anos",
+                    renovacao: "Tempo de renovação: 60 dias úteis"
+                },
+                LI: {
+                    analise: "Tempo de análise: 30 dias úteis",
+                    validade: "Tempo de validade: 3 anos",
+                    renovacao: "Tempo de renovação: 60 dias úteis"
+                },
+                LO: {
+                    analise: "Tempo de análise: 30 dias úteis",
+                    validade: "Tempo de validade: 5 anos",
+                    renovacao: "Tempo de renovação: 30 dias úteis"
+                },
+                AA: {
+                    analise: "Tempo de análise: 30 dias",
+                    validade: "Tempo de validade: 5 anos",
+                    renovacao: "Tempo de renovação: 30 dias"
+                },
+                SupressaoVegetal: {
+                    analise: "Tempo de análise: 20 dias",
+                    validade: "Tempo de validade: 1 ano",
+                    renovacao: "Tempo de renovação: 20 dias"
+                },
+                UsoFogoControlado: {
+                    analise: "Tempo de análise: 10 dias",
+                    validade: "Tempo de validade: 1 ano",
+                    renovacao: "Tempo de renovação: 10 dias"
+                },
+                TransporteMateriaPrima: {
+                    analise: "Tempo de análise: 10 dias",
+                    validade: "Tempo de validade: 5 anos",
+                    renovacao: "Tempo de renovação: 10 dias"
+                },
+                CadastroConsumidores: {
+                    analise: "Tempo de análise: 5 dias",
+                    validade: "Tempo de validade: 5 anos",
+                    renovacao: "Tempo de renovação: 5 dias"
+                },
+                CadastroAgrotoxicos: {
+                    analise: "Tempo de análise: 15 dias",
+                    validade: "Tempo de validade: 5 anos",
+                    renovacao: "Tempo de renovação: 15 dias"
+                },
+                RegistroEstabelecimento: {
+                    analise: "Tempo de análise: 30 dias",
+                    validade: "Tempo de validade: 5 anos",
+                    renovacao: "Tempo de renovação: 30 dias"
+                }
+            };
+
+              // Atualizar os parágrafos com as respostas dos tempos
+            document.getElementById("analise").textContent = tempoMap[licenseValue].analise;
+            document.getElementById("validade").textContent = tempoMap[licenseValue].validade;
+            document.getElementById("renovacao").textContent = tempoMap[licenseValue].renovacao;
+        });
+
+        // Exibir o nome do arquivo selecionado
+        document.getElementById("myfile").addEventListener("change", function () {
+            updateFileName();
+        });
+        
+        document.getElementById("enviar-btn").addEventListener("click", function () {
+            const selectedLicense = document.getElementById("license").value;
+            const selectedFiles = document.getElementById("myfile").files;
+            // Exibir uma mensagem de confirmação
+            if (confirm("Tem certeza de que deseja enviar os arquivos?")) {
+                // Aqui você pode adicionar a lógica para enviar os arquivos ou realizar a ação desejada
+            }
+        document.getElementById("enviar-btn").addEventListener("click", function () {
+            alert("Seus arquivos foram enviados com sucesso!");
+            const message = document.createElement("p");
+    message.textContent = "Os arquivos foram enviados com sucesso.";
+        });
+        document.getElementById("myfile").addEventListener("change", function () {
+        updateFileName();
+    });
+
+        
+        // Validar se pelo menos um arquivo foi selecionado
+        if (selectedFiles.length === 0) {
+            alert("Selecione um arquivo para enviar.");
+            return; // Impede o envio se nenhum arquivo for selecionado
+            }
+            
+                
+  // Function to categorize and display licenses with expiration dates
+    function categorizeLicenses() {
+            const licensesExpired = [];
+            const licensesInTime = [];
+            const licensesApproaching = [];
+
+            // Example licenses
+            const license1 = {
+                name: "Licença Vencida 1",
+                client: "Cliente A",
+                licenseType: "Tipo A",
+                licenseNumber: "12345",
+                protocolDeadline: "01/05/2022",
+                expirationDate: "30/09/2022",
+            };
+
+            const license2 = {
+                name: "Licença Atrasada 1",
+                client: "Cliente B",
+                licenseType: "Tipo B",
+                licenseNumber: "67890",
+                protocolDeadline: "15/03/2022",
+                expirationDate: "15/08/2022",
+            };
+
+            const license3 = {
+                name: "Licença Programada 1",
+                client: "Cliente C",
+                licenseType: "Tipo C",
+                licenseNumber: "54321",
+                protocolDeadline: "01/02/2023",
+                expirationDate: "10/12/2023",
+            };
+
+            const license4 = {
+                name: "Licença Acompanhamento 1",
+                client: "Cliente D",
+                licenseType: "Tipo D",
+                licenseNumber: "98765",
+                protocolDeadline: "05/03/2024",
+                expirationDate: "10/12/2024",
+            };
+
+            const license5 = {
+                name: "Licença Acompanhamento 2",
+                client: "Cliente E",
+                licenseType: "Tipo E",
+                licenseNumber: "13579",
+                protocolDeadline: "20/06/2022",
+                expirationDate: "05/06/2023",
+            };
+
+            // Add licenses to appropriate categories
+            licensesExpired.push(license1);
+            licensesExpired.push(license2);
+
+            licensesInTime.push(license3);
+
+            licensesApproaching.push(license4);
+            licensesApproaching.push(license5);
+
+            // Display licenses in appropriate sections with deadline information
+            displayLicenses("licenses-expired", licensesExpired);
+            displayLicenses("licenses-in-time", licensesInTime);
+            displayLicenses("licenses-approaching", licensesApproaching);
+        }
+
+        // Function to display licenses in a specific section with deadline information
+        function displayLicenses(sectionId, licenses) {
+            const section = document.getElementById(sectionId);
+            section.innerHTML = ""; // Clear existing content
+
+            licenses.forEach(function (license) {
+                const licenseDiv = document.createElement("div");
+                const licenseName = document.createElement("p");
+                const clientInfo = document.createElement("p");
+                const licenseType = document.createElement("p");
+                const licenseNumber = document.createElement("p");
+                const protocolDeadline = document.createElement("p");
+                const expirationDate = document.createElement("p");
+
+                licenseName.textContent = license.name;
+                clientInfo.textContent = "Cliente: " + license.client;
+                licenseType.textContent = "Tipo de Licença: " + license.licenseType;
+                licenseNumber.textContent = "Número da Licença: " + license.licenseNumber;
+                protocolDeadline.textContent = "Protocolar até: " + license.protocolDeadline;
+                expirationDate.textContent = "Vencimento: " + license.expirationDate;
+
+                licenseDiv.appendChild(licenseName);
+                licenseDiv.appendChild(clientInfo);
+                licenseDiv.appendChild(licenseType);
+                licenseDiv.appendChild(licenseNumber);
+                licenseDiv.appendChild(protocolDeadline);
+                licenseDiv.appendChild(expirationDate);
+
+                section.appendChild(licenseDiv);
+            });
+        }
+
+        // Call the function to categorize and display licenses
+        categorizeLicenses();
+
+// Função para categorizar e exibir as licenças com informações de prazos
+function categorizarLicencas() {
+    const licencasVencidas = [];
+    const licencasNoPrazo = [];
+    const licencasChegagem = [];
+
+    // Comparar datas e categorizar
+    if (dataAtual > dataVencida) {
+        licencasVencidas.push({ nome: "Licença Vencida 1", prazo: dataVencida });
+    } else {
+        licencasNoPrazo.push({ nome: "Licença no Prazo 1", prazo: dataVencida });
+    }
+    
+    if (dataAtual > dataNoPrazo) {
+        licencasVencidas.push({ nome: "Licença Vencida 2", prazo: dataNoPrazo });
+    } else {
+        licencasNoPrazo.push({ nome: "Licença no Prazo 2", prazo: dataNoPrazo });
+    }
+
+    if (dataAtual > dataChegagem) {
+        licencasVencidas.push({ nome: "Licença Vencida 3", prazo: dataChegagem });
+    } else {
+        licencasChegagem.push({ nome: "Licença em Chegagem 3", prazo: dataChegagem });
+    }
+
+    // Exibir licenças nas seções apropriadas com informações de prazos
+    exibirLicencas("licencas-vencidas", licencasVencidas);
+    exibirLicencas("licencas-no-prazo", licencasNoPrazo);
+    exibirLicencas("licencas-chegagem", licencasChegagem);
+}
+
+// Função para exibir licenças em uma seção específica com informações de prazos
+function exibirLicencas(secaoId, licencas) {
+    const secao = document.getElementById(secaoId);
+    secao.innerHTML = ""; // Limpar conteúdo existente
+
+    licencas.forEach(function (licenca) {
+        const divLicenca = document.createElement("div");
+        const nomeLicenca = document.createElement("p");
+        const prazoLicenca = document.createElement("p");
+
+        nomeLicenca.textContent = licenca.nome;
+        prazoLicenca.textContent = "Prazo: " + formatarData(licenca.prazo);
+
+        divLicenca.appendChild(nomeLicenca);
+        divLicenca.appendChild(prazoLicenca);
+
+        secao.appendChild(divLicenca);
+    });
+}
+
+// Função para formatar uma data em formato "dd/mm/yyyy"
+function formatarData(data) {
+    const dia = String(data.getDate()).padStart(2, '0');
+    const mes = String(data.getMonth() + 1).padStart(2, '0');
+    const ano = data.getFullYear();
+    return dia + '/' + mes + '/' + ano;
+}
+
+// Chamar a função para categorizar e exibir as licenças
+categorizarLicencas();
+
+        })
+
+        function toggleSidebar() {
+    const sidebar = document.getElementById("mySidebar");
+    if (sidebar.style.left === "0px") {
+        sidebar.style.left = "-250px";
+    } else {
+        sidebar.style.left = "0px";
+    }
+}
+
+</script>
+</body>
+</html>
